@@ -1,7 +1,7 @@
 class Xrop < Formula
   desc "ROP Gadget finder "
   homepage "https://github.com/acama/xrop"
-  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  license "MIT"
   version "1.2"
 
   if Hardware::CPU.arm?
@@ -13,7 +13,7 @@ class Xrop < Formula
   end
 
   def install
-    (prefix/).install Dir["./*"]
+    (prefix/"./").install Dir["./*"]
     Dir.glob(prefix/"xrop") {|file| bin.install_symlink file}
   end
 end
